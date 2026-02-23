@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Say What... | Slang Monster Edition</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Bangers&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="labubu-container">
+        <header>
+            <h1 class="logo">SAY <span>WHAT...</span></h1>
+            <p class="tagline">The Generational Translator</p>
+        </header>
+
+        <section class="search-section">
+            <div class="input-wrapper">
+                <input type="text" id="word-input" placeholder="Feed me slang..." autocomplete="off">
+            </div>
+
+            <div class="trending-container">
+                <span class="trending-label">HOT NOW:</span>
+                <div id="trending-list" class="trending-list">
+                    </div>
+            </div>
+            
+            <div class="button-group">
+                <button id="search-btn">CHOMP</button>
+                <button id="random-btn">✨ SURPRISE</button>
+            </div>
+
+            <div class="history-section">
+                <div id="history-bar" class="history-bar">
+                    </div>
+                <button id="clear-history-btn" class="clear-btn hidden">RESET FEED</button>
+            </div>
+        </section>
+
+        <div id="loader" class="hidden">
+            <div class="spinner"></div>
+            <p>Monster is digesting...</p>
+        </div>
+
+        <main id="result-display" class="hidden">
+            <article class="toy-box-card">
+                
+                <header class="card-header">
+                    <span id="gen-badge">LABUBU VIBES</span>
+                    <h2 id="display-term">Term</h2>
+                </header>
+
+                <div class="definition-section">
+                    <p id="display-definition"></p>
+                </div>
+
+                <section class="bridge-container">
+                    <h3 class="bridge-title" style="font-size: 0.65rem; color: var(--monster-pink); font-weight: 800; margin-bottom: 10px;">SLANG EVOLUTION</h3>
+                    <div class="bridge-flex">
+                        <div class="bridge-side">
+                            <span class="label" style="display: block; font-size: 0.6rem; opacity: 0.6;">THEN (ANCIENT)</span>
+                            <p id="bridge-old">---</p>
+                        </div>
+                        
+                        <div class="bridge-arrow">🦷</div>
+
+                        <div class="bridge-side">
+                            <span class="label" style="display: block; font-size: 0.6rem; opacity: 0.6;">NOW (YOUTH)</span>
+                            <p id="bridge-new">---</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="extra-info">
+                    </div>
+
+                <div class="example-section">
+                    <h3 style="font-size: 0.7rem; color: var(--toy-black); margin-bottom: 5px;">CONTEXT CLUES:</h3>
+                    <p id="display-example"></p>
+                </div>
+
+            </article>
+        </main>
+
+        <footer>
+            <p>Say What... v1.3 | Bridging the Gap</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
