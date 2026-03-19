@@ -1,82 +1,192 @@
 /**
- * 1. THE EXPANDED MONSTER BRAIN (Rosetta Library)
+ * 1. THE BRAINROT ENGINE - MASTER GLOSSARY
  */
-const translationMap = {
-    // --- GEN ALPHA / BRAINROT ---
-    "rizz": { then: "Game / Charisma", gen: "GEN ALPHA", era: "2023", risk: "High" },
-    "skibidi": { then: "Nonsense / Chaos", gen: "GEN ALPHA", era: "2024", risk: "CRITICAL" },
-    "gyatt": { then: "Goodness! / Damn!", gen: "GEN ALPHA", era: "2023", risk: "CRITICAL" },
-    "sigma": { then: "Lone Wolf / Boss", gen: "GEN ALPHA", era: "2023", risk: "Medium" },
-    "mewing": { then: "Jawline Exercise", gen: "GEN ALPHA", era: "2024", risk: "High" },
-    "fanum tax": { then: "Stealing Food", gen: "GEN ALPHA", era: "2023", risk: "High" },
-    "ohio": { then: "Cringe / Weird", gen: "GEN ALPHA", era: "2023", risk: "High" },
-    "mog": { then: "Looking Better Than Others", gen: "GEN ALPHA", era: "2024", risk: "High" },
-    "mogging": { then: "Looking Better Than Others", gen: "GEN ALPHA", era: "2024", risk: "High" },
+const priorityLibrary = {
+    // --- A ---
+    "addy": {
+        short: "Address",
+        full: "Short for 'address.' Commonly used when asking for a location to meet up.",
+        example: "Send me the addy so I can GPS it.",
+        gen: "GEN Z", era: "2010s", risk: "Low", boomer: "Location details"
+    },
+    "af": {
+        short: "Very / Extremely",
+        full: "Abbreviation for 'as f***,' used as an intensifier for any adjective.",
+        example: "That new movie was scary af.",
+        gen: "MILLENNIAL/Z", era: "2010s", risk: "Medium", boomer: "Extremely"
+    },
+    "and i oop": {
+        short: "Oops / Surprise",
+        full: "An expression of sudden surprise or a mistake. Viral meme from Jasmine Masters.",
+        example: "I just dropped my phone... and i oop!",
+        gen: "GEN Z", era: "2019", risk: "Medium", boomer: "That's unfortunate"
+    },
+    "ate": {
+        short: "Great Job",
+        full: "To do something exceptionally well. Short for 'ate and left no crumbs.'",
+        example: "She really ate that dance routine.",
+        gen: "GEN Z", era: "2022", risk: "Low", boomer: "Knocked it out of the park"
+    },
+    "aura": {
+        short: "Presence",
+        full: "Someone's cool factor or vibe. You can gain or lose aura points based on your actions.",
+        example: "He walked in with 10,000 aura points.",
+        gen: "GEN Z/ALPHA", era: "2024", risk: "High", boomer: "Commanding presence"
+    },
 
-    // --- GEN Z STAPLES ---
-    "cap": { then: "Lying / BS", gen: "GEN Z", era: "2010s", risk: "Low" },
-    "no cap": { then: "For Real / Seriously", gen: "GEN Z", era: "2010s", risk: "Low" },
-    "bet": { then: "Alright / Word", gen: "GEN Z", era: "2010s", risk: "Low" },
-    "fire": { then: "Radical / Awesome", gen: "GEN Z", era: "2010s", risk: "Low" },
-    "slay": { then: "Killing it / Great Job", gen: "GEN Z", era: "2010s", risk: "Low" },
-    "ick": { then: "Turn-off / Gross", gen: "GEN Z", era: "2020s", risk: "Medium" },
-    "sus": { then: "Shady / Sketchy", gen: "GEN Z", era: "2018", risk: "Medium" },
-    "bussin": { then: "Delicious / Tasty", gen: "GEN Z", era: "2021", risk: "High" },
-    "mid": { then: "Average / Mediocre", gen: "GEN Z", era: "2020s", risk: "Medium" },
-    "tea": { then: "Gossip / Dirt", gen: "GEN Z", era: "2010s", risk: "Low" },
-    "delulu": { then: "Delusional", gen: "GEN Z", era: "2023", risk: "Medium" },
-    "aura": { then: "Presence / Vibe", gen: "GEN Z", era: "2024", risk: "Low" },
-    "pookie": { then: "Bestie / Sweetie", gen: "GEN Z", era: "2023", risk: "Low" },
-    "periodt": { then: "End of story", gen: "GEN Z", era: "2010s", risk: "Medium" },
-    "stan": { then: "Obsessed Fan", gen: "GEN Z", era: "2010s", risk: "Low" },
-    "yeet": { then: "To Throw / Toss", gen: "GEN Z", era: "2018", risk: "Medium" },
-    "glow up": { then: "Transformation", gen: "GEN Z", era: "2010s", risk: "Low" },
-    "sending me": { then: "That is hilarious", gen: "GEN Z", era: "2020", risk: "Medium" },
-    "rent free": { then: "Can't stop thinking about it", gen: "GEN Z", era: "2010s", risk: "Low" },
-    "valid": { then: "Acceptable / True", gen: "GEN Z", era: "2020", risk: "Low" },
-    "sheesh": { then: "Good Lord!", gen: "GEN Z", era: "2021", risk: "Medium" },
-    "main character": { then: "Center of attention", gen: "GEN Z", era: "2021", risk: "Low" },
-    "clout": { then: "Fame / Influence", gen: "GEN Z", era: "2010s", risk: "Low" },
+    // --- B ---
+    "bet": {
+        short: "Okay / Yes",
+        full: "A term of agreement or confirmation. Similar to saying 'word' or 'alright.'",
+        example: "You coming to the party? - Bet.",
+        gen: "GEN Z/MILLENNIAL", era: "2010s", risk: "Low", boomer: "Sounds good"
+    },
+    "bde": {
+        short: "Confidence",
+        full: "Stands for Big Dick Energy. A vibe of quiet, understated confidence without arrogance.",
+        example: "She walks into every meeting with massive BDE.",
+        gen: "MILLENNIAL/Z", era: "2018", risk: "Medium", boomer: "Quiet confidence"
+    },
+    "bussin": {
+        short: "Delicious",
+        full: "Used to describe food that tastes extremely good.",
+        example: "This burger is straight bussin.",
+        gen: "GEN Z", era: "2021", risk: "Medium", boomer: "Tasty"
+    },
 
-    // --- INTERNET / GAMER SLANG ---
-    "ratio": { then: "Get owned / Disagreed with", gen: "INTERNET", era: "2021", risk: "High" },
-    "touch grass": { then: "Go outside / Get a life", gen: "INTERNET", era: "2021", risk: "Medium" },
-    "based": { then: "Authentic / Unfiltered", gen: "INTERNET", era: "2020", risk: "High" },
-    "cope": { then: "Deal with it", gen: "INTERNET", era: "2021", risk: "High" },
-    "seethe": { then: "Stay mad", gen: "INTERNET", era: "2021", risk: "High" },
-    "npc": { then: "Mindless / Follower", gen: "INTERNET", era: "2022", risk: "High" },
-    "gigachad": { then: "Ultimate Man", gen: "INTERNET", era: "2021", risk: "Medium" },
-    "clutch": { then: "Last minute save", gen: "GAMER", era: "Older", risk: "Low" },
-    "pog": { then: "Exciting / Rad", gen: "GAMER", era: "2020", risk: "High" },
-    "goated": { then: "The Greatest of All Time", gen: "GEN Z", era: "2022", risk: "Low" }
+    // --- C ---
+    "cap": {
+        short: "A Lie",
+        full: "Used to indicate someone is lying or exaggerating. 'No cap' means 'for real.'",
+        example: "You caught a fish that big? Stop the cap.",
+        gen: "GEN Z", era: "2019", risk: "Medium", boomer: "Falsification"
+    },
+    "cheugy": {
+        short: "Outdated",
+        full: "Used to describe someone who is out of touch or trying too hard to be trendy.",
+        example: "Graphic tees with 'Girl Boss' on them are so cheugy.",
+        gen: "GEN Z", era: "2021", risk: "Low", boomer: "Out of style"
+    },
+    "cooked": {
+        short: "Doomed",
+        full: "To be in a hopeless situation, exhausted, or failing miserably.",
+        example: "I have a final exam in an hour and haven't studied. I'm cooked.",
+        gen: "GEN Z/ALPHA", era: "2023", risk: "CRITICAL", boomer: "Done for"
+    },
+
+    // --- D ---
+    "delulu": {
+        short: "Unrealistic",
+        full: "Short for 'delusional.' Often used in the context of fan culture or romance.",
+        example: "Being delulu is the only way I get through the day.",
+        gen: "GEN Z", era: "2022", risk: "Medium", boomer: "Wishful thinking"
+    },
+    "drip": {
+        short: "Style / Swag",
+        full: "Refers to someone's fashionable clothes or overall cool appearance.",
+        example: "Check out the drip on his new outfit.",
+        gen: "GEN Z/MILLENNIAL", era: "2018", risk: "Low", boomer: "Sharp dresser"
+    },
+
+    // --- G-L ---
+    "ghost": {
+        short: "Left on Read",
+        full: "Cutting off all communication with someone without warning or explanation.",
+        example: "We went on one date and then he ghosted me.",
+        gen: "MILLENNIAL/Z", era: "2015", risk: "Low", boomer: "Stopped calling"
+    },
+    "glow up": {
+        short: "Transformation",
+        full: "A significant positive improvement in appearance, health, or style.",
+        example: "His post-high school glow up was insane.",
+        gen: "MILLENNIAL/Z", era: "2016", risk: "Low", boomer: "Came into their own"
+    },
+    "goat": {
+        short: "The Best",
+        full: "Acronym for 'Greatest Of All Time.' Used for sports stars or anyone elite.",
+        example: "LeBron is the GOAT, periodt.",
+        gen: "ALL GEN", era: "1990s", risk: "Low", boomer: "The best ever"
+    },
+    "ick": {
+        short: "Turn-off",
+        full: "A sudden feeling of disgust triggered by something someone does.",
+        example: "I liked him until I saw him run with a backpack on. Total ick.",
+        gen: "GEN Z", era: "2021", risk: "Medium", boomer: "Repulsion"
+    },
+    "lit": {
+        short: "Exciting",
+        full: "Used to describe a party, event, or situation that is high energy.",
+        example: "The concert last night was so lit.",
+        gen: "MILLENNIAL/Z", era: "2010s", risk: "Low", boomer: "High-spirited"
+    },
+
+    // --- M-R ---
+    "mid": {
+        short: "Average",
+        full: "Used as an insult to describe something that is mediocre or unimpressive.",
+        example: "That new album was honestly mid.",
+        gen: "GEN Z", era: "2021", risk: "Medium", boomer: "So-so"
+    },
+    "rizz": {
+        short: "Charisma",
+        full: "The ability to charm or flirt. Short for 'charisma.'",
+        example: "He's got that unspoken rizz.",
+        gen: "GEN Z/ALPHA", era: "2023", risk: "Medium", boomer: "Smooth talker"
+    },
+
+    // --- S-Z ---
+    "sus": {
+        short: "Sketchy",
+        full: "Short for 'suspicious.' Popularized by the game Among Us.",
+        example: "The way he's acting is kind of sus.",
+        gen: "GEN Z/ALPHA", era: "2020", risk: "High", boomer: "Suspicious"
+    },
+    "tea": {
+        short: "Gossip",
+        full: "Information about someone's personal life or a scandalous story.",
+        example: "Sit down and spill the tea.",
+        gen: "MILLENNIAL/Z", era: "2010s", risk: "Low", boomer: "Idle talk"
+    },
+    "yeet": {
+        short: "Throw",
+        full: "To throw something with high force or disregard.",
+        example: "He took my water bottle and yeeted it across the room.",
+        gen: "GEN Z", era: "2014", risk: "Medium", boomer: "Toss"
+    },
+    "skibidi": {
+        short: "Nonsense",
+        full: "A chaotic filler word or reference to a weird meme. Usually denotes something bad or evil.",
+        example: "That's so skibidi, I can't even.",
+        gen: "GEN ALPHA", era: "2023", risk: "CRITICAL", boomer: "Gibberish"
+    }
 };
 
-const trendingSlang = ["Aura", "Sigma", "Rizz", "Skibidi", "Delulu"];
+const trendingSlang = ["Rizz", "Aura", "Cooked", "Skibidi", "Cap"];
 
-const autoBridgeKeywords = [
-    { keys: ['lie', 'lying', 'falsehood'], then: 'Lying / Fibbing' },
-    { keys: ['cool', 'awesome', 'great', 'amazing', 'good'], then: 'Radical / Choice' },
-    { keys: ['attractive', 'hot', 'pretty', 'handsome', 'sexy'], then: 'A Hottie / A Looker' },
-    { keys: ['bad', 'terrible', 'trash', 'garbage'], then: 'Bummer / Bogus' },
-    { keys: ['gossip', 'rumor', 'drama'], then: 'The Scuttlebutt' }
-];
-
-/**
- * 2. SELECTORS
- */
+// --- SELECTORS ---
+const wordInput = document.getElementById('word-input');
+const clearInputBtn = document.getElementById('clear-input-btn');
 const searchBtn = document.getElementById('search-btn');
 const randomBtn = document.getElementById('random-btn');
-const clearHistoryBtn = document.getElementById('clear-history-btn');
-const wordInput = document.getElementById('word-input');
-const resultDisplay = document.getElementById('result-display');
 const loader = document.getElementById('loader');
+const resultDisplay = document.getElementById('result-display');
 const historyBar = document.getElementById('history-bar');
+const clearHistoryBtn = document.getElementById('clear-history-btn');
 
-let searchHistory = JSON.parse(localStorage.getItem('labubuHistory')) || [];
+let searchHistory = JSON.parse(localStorage.getItem('slangHistory')) || [];
 
-/**
- * 3. CORE TRANSLATION ENGINE
- */
+// --- AURA ENGINE ---
+function calculateAura(risk) {
+    if (risk === "CRITICAL" || risk === "High") {
+        return { label: "⚠️ CRITICAL BRAINROT", color: "#ff4757", width: "100%" };
+    }
+    if (risk === "Medium") {
+        return { label: "UNSETTLED AURA", color: "#FFD700", width: "55%" };
+    }
+    return { label: "POSITIVE AURA", color: "#4ecdc4", width: "88%" };
+}
+
+// --- SEARCH ENGINE ---
 async function translateSlang(mode = 'search') {
     let query = wordInput.value.trim().toLowerCase();
     if (mode === 'search' && !query) return;
@@ -84,81 +194,112 @@ async function translateSlang(mode = 'search') {
     loader.classList.remove('hidden');
     resultDisplay.classList.add('hidden');
 
-    const url = mode === 'random' 
-        ? 'https://api.urbandictionary.com/v0/random' 
+    // Check if word is in our priority library FIRST
+    if (mode === 'search' && priorityLibrary[query]) {
+        // Simulate a small delay for the loader effect
+        setTimeout(() => {
+            saveToHistory(query);
+            renderResult({ word: query.toUpperCase() }, true);
+        }, 400);
+        return;
+    }
+
+    const url = mode === 'random'
+        ? 'https://api.urbandictionary.com/v0/random'
         : `https://api.urbandictionary.com/v0/define?term=${encodeURIComponent(query)}`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
-        
+
         if (data.list && data.list.length > 0) {
             const entry = data.list[0];
             saveToHistory(entry.word.toLowerCase());
-            renderResult(entry);
+            renderResult(entry, false);
         } else {
-            alert("The Monster hasn't tasted that word yet!");
+            alert("Slang not found in our context engine!");
             loader.classList.add('hidden');
         }
     } catch (err) {
         loader.classList.add('hidden');
-        console.error("Translation Error:", err);
+        console.error("Fetch error:", err);
     }
 }
 
-function renderResult(entry) {
-    const clean = (t) => t.replace(/[\[\]]/g, '');
-    const definition = clean(entry.definition);
-    let term = entry.word.toLowerCase();
+// --- RENDERING ENGINE ---
+function renderResult(entry, isPriority = false) {
+    const clean = (t) => t ? t.replace(/[\[\]]/g, '') : "N/A";
+    const term = entry.word.toLowerCase();
 
-    // Matching Algorithm
-    let meta = translationMap[term];
+    // Data Mapping
+    const customEntry = priorityLibrary[term];
+    const meta = customEntry || {
+        short: "Modern Term",
+        gen: "GEN Z",
+        era: "2020s",
+        risk: "Low",
+        full: clean(entry.definition),
+        example: entry.example ? clean(entry.example) : "No example found.",
+        boomer: "Classic Term"
+    };
 
-    // Suffix Strip (handles "rizzing", "capped", etc.)
-    if (!meta) {
-        const stems = [term.replace(/ing$/, ''), term.replace(/ed$/, ''), term.replace(/s$/, '')];
-        for (let s of stems) {
-            if (translationMap[s]) { meta = translationMap[s]; break; }
-        }
-    }
+    const aura = calculateAura(meta.risk);
+    const isCritical = (meta.risk === 'CRITICAL');
 
-    // Keyword Fallback
-    if (!meta) {
-        const lowerDef = definition.toLowerCase();
-        const found = autoBridgeKeywords.find(group => group.keys.some(k => lowerDef.includes(k)));
-        meta = found ? { then: found.then, gen: "DETECTED", era: "Modern", risk: "Unknown" } : null;
-    }
-
-    // Ultimate Fallback
-    if (!meta) meta = { then: "Seeking Elder Input...", gen: "NEW SLANG", era: "???", risk: "N/A" };
-
-    // UI Injection
+    // UI Updates
     document.getElementById('display-term').innerText = entry.word;
-    document.getElementById('display-definition').innerText = definition;
-    document.getElementById('display-example').innerText = clean(entry.example);
-    document.getElementById('bridge-old').innerText = meta.then;
-    document.getElementById('bridge-new').innerText = entry.word;
     document.getElementById('gen-badge').innerText = meta.gen;
+    document.getElementById('display-definition').innerText = meta.full;
 
+    // THE ROSETTA STONE (SLANG BRIDGE) - Boomer Mapping
+    document.getElementById('bridge-old').innerText = meta.boomer || meta.short;
+    document.getElementById('bridge-new').innerText = entry.word;
+
+    // Example Box
+    const exampleBox = document.querySelector('.example-section');
+    if (!meta.example || meta.example === "None") {
+        exampleBox.style.display = 'none';
+    } else {
+        exampleBox.style.display = 'block';
+        document.getElementById('display-example').innerText = meta.example;
+    }
+
+    // ERA & CRINGE + AURA BAR
     document.getElementById('extra-info').innerHTML = `
-        <div class="meta-booster">
-            <span>ERA: ${meta.era}</span>
-            <span>CRINGE RISK: <span class="risk-${meta.risk.toLowerCase()}">${meta.risk}</span></span>
+        <div class="meta-booster" style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 900; opacity: 0.8; margin-bottom: 8px; padding: 0 5px;">
+            <span style="color: var(--toy-black)">ERA: ${meta.era}</span>
+            <span style="color: var(--toy-black)">CRINGE RISK: <span style="color: ${aura.color}">${meta.risk}</span></span>
+        </div>
+        <div class="aura-wrapper">
+            <span class="aura-label" style="color: ${aura.color}; font-weight: 900; font-size: 0.75rem; display: block; margin-bottom: 5px;">${aura.label}</span>
+            <div class="aura-bar-bg">
+                <div id="aura-fill" class="aura-bar-fill" style="width: 0%; background: ${aura.color};"></div>
+            </div>
         </div>
     `;
 
     loader.classList.add('hidden');
     resultDisplay.classList.remove('hidden');
+
+    // Aura Fill Animation
+    setTimeout(() => {
+        const bar = document.getElementById('aura-fill');
+        if (bar) bar.style.width = aura.width;
+    }, 50);
+
+    // Apply Shake for Brainrot
+    const card = document.querySelector('.toy-box-card');
+    card.classList.remove('critical-shake');
+    if (isCritical) {
+        void card.offsetWidth; // Trigger reflow
+        card.classList.add('critical-shake');
+    }
 }
 
-/**
- * 4. UI COMPONENTS
- */
+// --- UTILS ---
 function renderTrending() {
-    const container = document.getElementById('trending-list');
-    if (!container) return;
-    container.innerHTML = trendingSlang.map(word => 
-        `<span class="trend-tag" onclick="quickChomp('${word}')">#${word}</span>`
+    document.getElementById('trending-list').innerHTML = trendingSlang.map(word =>
+        `<span class="trend-tag" onclick="quickChomp('${word}')">🔥 ${word}</span>`
     ).join('');
 }
 
@@ -166,7 +307,7 @@ function saveToHistory(word) {
     if (!searchHistory.includes(word)) {
         searchHistory.unshift(word);
         searchHistory = searchHistory.slice(0, 5);
-        localStorage.setItem('labubuHistory', JSON.stringify(searchHistory));
+        localStorage.setItem('slangHistory', JSON.stringify(searchHistory));
         renderHistory();
     }
 }
@@ -178,35 +319,23 @@ function renderHistory() {
         return;
     }
     clearHistoryBtn.classList.remove('hidden');
-    historyBar.innerHTML = searchHistory
-        .map(w => `<button class="chip" onclick="quickChomp('${w}')">${w}</button>`)
-        .join('');
+    historyBar.innerHTML = searchHistory.map(w =>
+        `<button class="chip" onclick="quickChomp('${w}')">${w}</button>`
+    ).join('');
 }
 
-// History Reset with Monster Burp Animation
+// --- LISTENERS ---
+clearInputBtn.addEventListener('click', () => { wordInput.value = ''; wordInput.focus(); });
 clearHistoryBtn.addEventListener('click', () => {
-    const chips = document.querySelectorAll('.chip');
-    chips.forEach(chip => chip.classList.add('shake-out'));
-
-    setTimeout(() => {
-        searchHistory = [];
-        localStorage.removeItem('labubuHistory');
-        renderHistory();
-    }, 400);
+    searchHistory = [];
+    localStorage.removeItem('slangHistory');
+    renderHistory();
 });
-
-/**
- * 5. LISTENERS
- */
-window.quickChomp = (word) => {
-    wordInput.value = word;
-    translateSlang('search');
-};
-
+window.quickChomp = (word) => { wordInput.value = word; translateSlang('search'); };
 searchBtn.addEventListener('click', () => translateSlang('search'));
 randomBtn.addEventListener('click', () => translateSlang('random'));
 wordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') translateSlang('search'); });
 
-// Boot
+// INIT
 renderTrending();
 renderHistory();
