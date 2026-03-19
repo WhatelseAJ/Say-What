@@ -1,15 +1,15 @@
-/* 1. Labubu Theme Variables */
+/* 1. THEME VARIABLES */
 :root {
-    --bg-pink: #ffc2d1;       /* Soft Box Pink */
-    --labubu-cream: #fdfaf1;   /* Fur/Face Cream */
-    --monster-teal: #4ecdc4;   /* Toy Accent Teal */
-    --monster-pink: #ff85a1;   /* Labubu Tongue/Ear Pink */
-    --toy-black: #2d3436;      /* Bold Outlines */
-    --risk-low: #4ade80;
-    --risk-med: #fbbf24;
-    --risk-high: #ff85a1;
+    --bg-pink: #ffc2d1;
+    --labubu-cream: #fdfaf1;
+    --monster-teal: #4ecdc4;
+    --monster-pink: #ff85a1;
+    --toy-black: #2d3436;
+    --toy-yellow: #FFD700;
+    --hot-red: #ff4757;
 }
 
+/* 2. GLOBAL STYLES */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,7 +18,6 @@
 
 body {
     background-color: var(--bg-pink);
-    /* Labubu Polka-Dot Packaging Pattern */
     background-image: radial-gradient(var(--monster-pink) 1.5px, transparent 1.5px);
     background-size: 25px 25px;
     font-family: 'Fredoka', sans-serif;
@@ -26,6 +25,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     padding: 40px 20px;
+    overflow-x: hidden;
 }
 
 .labubu-container {
@@ -36,7 +36,7 @@ body {
     align-items: center;
 }
 
-/* 2. Header & Branding */
+/* 3. BRANDING */
 header {
     margin-bottom: 30px;
     text-align: center;
@@ -49,10 +49,11 @@ header {
     -webkit-text-stroke: 2px var(--toy-black);
     text-shadow: 6px 6px 0px var(--toy-black);
     transform: rotate(-2deg);
-    line-height: 1;
 }
 
-.logo span { color: var(--monster-teal); }
+.logo span {
+    color: var(--monster-teal);
+}
 
 .tagline {
     font-weight: 700;
@@ -66,82 +67,101 @@ header {
     font-size: 0.8rem;
 }
 
-/* 3. Rounded Search & Trending Stickers */
+/* 4. SEARCH BAR */
 .search-section {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .input-wrapper {
+    position: relative;
     background: white;
     border: 4px solid var(--toy-black);
-    border-radius: 30px; /* Fully rounded for the toy look */
+    border-radius: 30px;
     box-shadow: 0 8px 0px var(--toy-black);
-    margin-bottom: 15px;
-    overflow: hidden;    /* Fixes the "square corners" poking out */
     display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 input {
     width: 100%;
-    padding: 18px;
+    padding: 18px 60px 18px 18px;
     border: none;
     outline: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: 'Fredoka', sans-serif;
+    background: transparent;
     text-align: center;
     color: var(--toy-black);
-    background: white;
-    border-radius: 30px; /* Double-safe rounding */
 }
 
+.input-clear-x {
+    position: absolute;
+    right: 15px;
+    background: var(--toy-yellow);
+    border: 3px solid var(--toy-black);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--toy-black);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 0px var(--toy-black);
+    z-index: 5;
+}
+
+/* 5. STICKER ROW (HOT NOW) */
 .trending-container {
-    margin-bottom: 20px;
+    width: 100%;
     text-align: center;
+    margin-bottom: 25px;
 }
 
 .trending-label {
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: var(--toy-black);
+    color: var(--hot-red);
+    font-weight: 900;
+    font-style: italic;
+    margin-bottom: 12px;
     display: block;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
 .trending-list {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px 5px;
 }
 
 .trend-tag {
-    background: white;
-    border: 2px solid var(--toy-black);
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 3px 3px 0px var(--toy-black);
-    transition: 0.2s;
-}
-
-.trend-tag:hover {
-    transform: scale(1.1) rotate(-3deg);
-    background: var(--monster-teal);
+    background: var(--hot-red);
     color: white;
+    border: 3px solid var(--toy-black);
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px var(--toy-black);
+    white-space: nowrap;
+    text-transform: uppercase;
 }
 
-/* 4. Buttons & History */
+/* 6. ACTION BUTTONS */
 .button-group {
     display: flex;
     gap: 15px;
     justify-content: center;
 }
 
-button {
+button:not(.input-clear-x, .chip, #clear-history-btn) {
     font-family: 'Fredoka', sans-serif;
     font-weight: 700;
     padding: 12px 25px;
@@ -150,167 +170,223 @@ button {
     cursor: pointer;
     box-shadow: 0 6px 0px var(--toy-black);
     transition: 0.1s;
-    text-transform: uppercase;
 }
 
-#search-btn { background: var(--monster-teal); color: white; }
-#random-btn { background: white; color: var(--toy-black); }
-
-button:active {
-    transform: translateY(4px);
-    box-shadow: 0 2px 0px var(--toy-black);
+#search-btn {
+    background: var(--monster-teal);
+    color: white;
 }
 
-.history-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 25px;
-}
-
-.history-bar {
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.chip {
-    background: var(--labubu-cream);
-    border: 3px solid var(--toy-black);
-    padding: 6px 15px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.75rem;
-    cursor: pointer;
-    box-shadow: 0 4px 0px var(--toy-black);
-}
-
-.clear-btn {
-    background: transparent;
-    border: none;
+#random-btn {
+    background: white;
     color: var(--toy-black);
-    font-family: inherit;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-decoration: underline;
-    cursor: pointer;
-    opacity: 0.5;
 }
 
-.clear-btn:hover { opacity: 1; color: var(--monster-pink); }
-
-/* 5. Result Card & Bridge */
+/* 7. RESULT CARD */
 .toy-box-card {
     background: var(--labubu-cream);
     border: 5px solid var(--toy-black);
     border-radius: 35px;
-    padding: 40px 30px;
+    padding: 30px 25px;
     width: 100%;
     box-shadow: 12px 12px 0px var(--toy-black);
-    position: relative;
-    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 520px;
+    gap: 20px;
 }
 
-#gen-badge {
-    background: var(--monster-pink);
-    color: white;
-    padding: 6px 15px;
-    border-radius: 12px;
-    font-weight: 800;
-    font-size: 0.7rem;
-    border: 3px solid var(--toy-black);
-    position: absolute;
-    top: -15px;
-    right: 20px;
-    transform: rotate(5deg);
+.card-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 #display-term {
     font-family: 'Bangers', cursive;
-    font-size: 3.5rem;
+    font-size: clamp(2.8rem, 10vw, 4rem);
     color: var(--toy-black);
-    margin-bottom: 20px;
+    line-height: 1;
+    margin-top: 10px;
+    text-transform: uppercase;
+    inline-size: 100%;
+    overflow-wrap: break-word;
 }
 
+/* 8. THE ROSETTA STONE (SLANG BRIDGE) - THE STAR FEATURE */
 .bridge-container {
-    background: white;
-    border: 4px solid var(--toy-black);
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 25px;
-}
-
-.bridge-flex {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 22px 15px;
+    margin: 5px 0;
+    border: 3px dashed var(--toy-black);
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.02);
+    gap: 12px;
 }
 
-.bridge-side p { font-weight: 700; font-size: 1.2rem; color: var(--toy-black); }
-.bridge-arrow { font-size: 1.5rem; }
-
-.meta-booster {
+.bridge-row {
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-top: 3px dashed #ddd;
-    font-weight: 700;
-    font-size: 0.85rem;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.bridge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.bridge-label {
+    font-size: 0.75rem;
+    font-weight: 900;
     color: var(--toy-black);
+    opacity: 0.6;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
 }
 
-.example-section {
+#bridge-old,
+#bridge-new {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 900;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+}
+
+#bridge-new {
+    color: var(--monster-teal);
+}
+
+.bridge-arrow {
     background: white;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 3px solid var(--toy-black);
+    font-size: 1.1rem;
+    box-shadow: 3px 3px 0px var(--toy-black);
+}
+
+/* 9. DEFINITION & AURA */
+.definition-area {
+    width: 100%;
+    text-align: center;
+    padding: 0 5px;
+    font-weight: 600;
+    color: var(--toy-black);
+    line-height: 1.5;
+}
+
+#extra-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.aura-wrapper {
     padding: 15px;
+    background: white;
+    border: 3px solid var(--toy-black);
+    border-radius: 20px;
+}
+
+.aura-bar-bg {
+    width: 100%;
+    height: 14px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    border: 2px solid var(--toy-black);
+    overflow: hidden;
+}
+
+.aura-bar-fill {
+    height: 100%;
+    transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 10. EXAMPLE SECTION */
+.example-section {
+    margin-top: auto;
+    padding: 22px 15px 15px 15px;
+    background: var(--toy-yellow);
+    border: 3px solid var(--toy-black);
     border-radius: 15px;
-    border: 2px solid #eee;
-    font-style: italic;
-    font-size: 0.9rem;
-    color: #444;
+    position: relative;
 }
 
-/* Dynamic Risk Colors */
-.risk-low { color: var(--risk-low); }
-.risk-medium { color: var(--risk-med); }
-.risk-high, .risk-critical { color: var(--risk-high); text-decoration: underline; }
-
-/* 6. Animations */
-.hidden { display: none; }
-
-.shake-out {
-    animation: monsterBurp 0.4s ease forwards;
+.example-section::before {
+    content: "EXAMPLE";
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: var(--toy-black);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 3px 10px;
+    border-radius: 6px;
 }
 
-@keyframes monsterBurp {
-    0% { transform: scale(1) rotate(0deg); }
-    25% { transform: scale(1.1) rotate(5deg); }
-    50% { transform: scale(1.1) rotate(-5deg); }
-    100% { transform: scale(0); opacity: 0; }
+/* 11. UTILS & FOOTER */
+.hidden {
+    display: none !important;
 }
 
-@keyframes popIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+.history-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.spinner {
-    width: 40px;
-    height: 40px;
-    border: 6px solid white;
-    border-top: 6px solid var(--monster-teal);
-    border-radius: 50%;
-    margin: 0 auto 15px;
-    animation: spin 1s linear infinite;
+.chip {
+    background: white;
+    border: 2px solid var(--toy-black);
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    box-shadow: 0 3px 0px var(--toy-black);
+    margin: 4px;
 }
 
-@keyframes spin { to { transform: rotate(360deg); } }
+#clear-history-btn {
+    background: none;
+    border: none;
+    color: var(--toy-black);
+    text-decoration: underline;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0.5;
+    margin-top: 8px;
+}
 
 footer {
+    width: 100%;
+    text-align: center;
     margin-top: 40px;
     font-weight: 700;
-    color: var(--toy-black);
-    opacity: 0.5;
+    opacity: 0.4;
     font-size: 0.7rem;
+    padding-bottom: 30px;
 }
